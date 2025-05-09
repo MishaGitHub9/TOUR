@@ -52,7 +52,6 @@
             position: relative;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-shadow: var(--card-shadow);
-            overflow: visible;
         }
         
         header h1 {
@@ -1320,11 +1319,15 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            animation: pulse 3s ease-in-out infinite;
         }
 
         .donate-btn:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
+            animation: none;
+            transform: scale(1.03);
+            transition: all 0.3s ease;
         }
 
         .donate-btn i {
@@ -1960,6 +1963,137 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .help-project {
+            padding: 80px 0;
+            background: #F8FAFC;
+        }
+
+        .help-project-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .help-project h2 {
+            color: #2196F3;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .help-project-description {
+            color: #64748B;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #1E293B;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #1E293B;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .help-project {
+                padding: 60px 16px;
+            }
+
+            .help-project h2 {
+                font-size: 36px;
+            }
+
+            .help-project-description {
+                font-size: 16px;
+                margin-bottom: 32px;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.3);
+            }
+            
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 0 0 8px rgba(33, 150, 243, 0);
+            }
+            
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+            }
+        }
+
+        .donate-btn {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .donate-btn:hover {
+            animation: none;
+            transform: scale(1.03);
+            transition: all 0.3s ease;
+        }
     </style>
 
     <style>
@@ -2018,11 +2152,6 @@
         <p class="lang-uk">Знайди ідеальне місце для подорожі в Україні на основі твоїх інтересів</p>
         <p class="lang-en" style="display: none;">Find your perfect travel destination in Ukraine based on your interests</p>
         <button class="language-switcher" id="lang-switch">English</button>
-        <a href="#video" class="unesco-btn">
-            <i class="fas fa-landmark"></i>
-            <span class="lang-uk">ЮНЕСКО в Україні</span>
-            <span class="lang-en" style="display: none;">UNESCO in Ukraine</span>
-        </a>
         <a href="#donate" class="donate-btn">
             <i class="fab fa-bitcoin"></i>
             <span class="lang-uk">Донат на Україну</span>
@@ -2109,7 +2238,7 @@
         </section>
     </div>
 
-    <section class="about-us">
+    <section class="about-us" id="about-us">
         <div class="container">
             <div class="about-us-content">
                 <div class="about-us-text">
@@ -2170,7 +2299,7 @@
         </div>
     </section>
 
-    <section id="donate" class="donate-section">
+    <section id="donate" class="donate-section" style="background-color: #FBFDFD;">
         <div class="container">
             <div class="donate-content">
                 <h2 class="lang-uk">Підтримати Україну</h2>
@@ -2313,7 +2442,7 @@
         </div>
     </section>
 
-    <section class="useful-links">
+    <section class="useful-links" id="useful-links" style="background-color: #FBFDFD;">
         <div class="container">
             <div class="useful-links-content">
                 <h2 class="lang-uk">Корисні посилання</h2>
@@ -2381,7 +2510,7 @@
         </div>
     </section>
 
-    <section class="faq-section">
+    <section class="faq-section" id="faq" style="background-color: #FBFDFD;">
         <div class="container">
             <h2 class="lang-uk">Поширені запитання</h2>
             <h2 class="lang-en" style="display: none;">Frequently Asked Questions</h2>
@@ -2498,7 +2627,7 @@
         </div>
     </section>
 
-    <section class="video-section" id="video">
+    <section class="video-section" id="video" style="background-color: #FBFDFD;">
         <div class="container">
             <h2>
                 <span class="lang-uk">ЮНЕСКО в Україні</span>
@@ -2519,6 +2648,68 @@
                         allowfullscreen>
                     </iframe>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="help-project" id="help-project">
+        <div class="container">
+            <div class="help-project-content">
+                <h2>
+                    <span class="lang-uk">Допомогти проєкту</span>
+                    <span class="lang-en" style="display: none;">Help the Project</span>
+                </h2>
+                <p class="help-project-description">
+                    <span class="lang-uk">Маєте цікаві місця для подорожей в Україні? Поділіться з нами, і ми додамо їх до нашої бази даних!</span>
+                    <span class="lang-en" style="display: none;">Have interesting travel destinations in Ukraine? Share them with us, and we'll add them to our database!</span>
+                </p>
+                
+                <form class="contact-form" action="https://formspree.io/f/mqakpkbv" method="POST">
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-uk">Ваше ім'я</span>
+                            <span class="lang-en" style="display: none;">Your Name</span>
+                        </label>
+                        <input type="text" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-uk">Електронна пошта</span>
+                            <span class="lang-en" style="display: none;">Email</span>
+                        </label>
+                        <input type="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-uk">Назва місця</span>
+                            <span class="lang-en" style="display: none;">Place Name</span>
+                        </label>
+                        <input type="text" name="place" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-uk">Розташування</span>
+                            <span class="lang-en" style="display: none;">Location</span>
+                        </label>
+                        <input type="text" name="location" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-uk">Опис місця</span>
+                            <span class="lang-en" style="display: none;">Place Description</span>
+                        </label>
+                        <textarea name="description" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="lang-uk">Надіслати</span>
+                        <span class="lang-en" style="display: none;">Submit</span>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -2602,9 +2793,49 @@
                     <h4 class="lang-uk">Навігація</h4>
                     <h4 class="lang-en" style="display: none;">Navigation</h4>
                     <ul>
-                        <li><a href="#" class="lang-uk">Головна</a><a href="#" class="lang-en" style="display: none;">Home</a></li>
-                        <li><a href="#" class="lang-uk">Про нас</a><a href="#" class="lang-en" style="display: none;">About Us</a></li>
-                        <li><a href="#" class="lang-uk">Допомогти проєкту</a><a href="#" class="lang-en" style="display: none;">Support the Project</a></li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <span class="lang-uk">Головна</span>
+                                <span class="lang-en" style="display: none;">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about-us" class="nav-link">
+                                <span class="lang-uk">Про нас</span>
+                                <span class="lang-en" style="display: none;">About Us</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#donate" class="nav-link">
+                                <span class="lang-uk">Задонатити</span>
+                                <span class="lang-en" style="display: none;">Donate</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#useful-links" class="nav-link">
+                                <span class="lang-uk">Корисні посилання</span>
+                                <span class="lang-en" style="display: none;">Useful Links</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="nav-link">
+                                <span class="lang-uk">Поширені запитання</span>
+                                <span class="lang-en" style="display: none;">FAQ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#video" class="nav-link">
+                                <span class="lang-uk">ЮНЕСКО в Україні</span>
+                                <span class="lang-en" style="display: none;">UNESCO in Ukraine</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#help-project" class="nav-link">
+                                <span class="lang-uk">Допомогти проєкту</span>
+                                <span class="lang-en" style="display: none;">Help the Project</span>
+                            </a>
+                        </li>
                         
                     </ul>
                 </div>
@@ -4139,6 +4370,28 @@
                     map.setView([49.0, 31.0], 6);
                 }
             }
+        });
+    </script>
+    <script>
+        // Add smooth scrolling to all footer navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
         });
     </script>
 </body>
